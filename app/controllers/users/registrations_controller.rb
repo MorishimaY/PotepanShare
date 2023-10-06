@@ -77,11 +77,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
 # 登録後のリダイレクト先
- def after_sign_up_path_for(resource)
-   users_account_path
- end
+  def after_sign_up_path_for(resource)
+    users_account_path
+  end
  # アカウント情報更新後のリダレクト先
- def after_update_path_for(resource)
-   users_account_path
- end
+  def after_update_path_for(resource)
+    users_account_path
+  end
 end
