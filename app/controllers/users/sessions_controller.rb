@@ -27,8 +27,7 @@ class Users::SessionsController < Devise::SessionsController
 
   #ログイン後のリダイレクト先
   def after_sign_in_path_for(resource)
-    users_account_path
-    #users_registration_path
+    users_show_path
   end 
 
   #ログアウト後のリダイレクト先
