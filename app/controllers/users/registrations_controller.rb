@@ -67,7 +67,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def profile_update
     current_user.assign_attributes(account_update_params)
     if current_user.save
-      redirect_to users_account_path, notice: "ユーザー情報を更新しました"      
+      redirect_to users_show_path, notice: "ユーザー情報を更新しました"      
     else
       render "profile_edit"
     end
@@ -78,7 +78,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 # 登録後のリダイレクト先
   def after_sign_up_path_for(resource)
-   users_show_path
+    users_show_path
   end
 # アカウント情報更新後のリダレクト先
   def after_update_path_for(resource)
