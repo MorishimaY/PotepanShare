@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+  get 'rooms/index'
+  get 'rooms/own'
+  get 'home/top'
+  root 'home#top'
   get 'users/show'
   get 'users/profile'
+  get 'rooms/new'
+  resources :rooms
+  resources :users
+
 
   #devise_for :users
   devise_for :users, controllers: {

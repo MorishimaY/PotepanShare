@@ -1,0 +1,27 @@
+<h3>登録済み一覧</h3>
+
+<% if flash[:notice] %>
+   <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+  <table>
+    <thead>
+      <th>画像</th>
+      <th>施設名</th>
+      <th>紹介文</th>
+      <th>料金</th>
+      <th>作成日</th>
+    </thead>
+  
+    <tbody>
+      <% @rooms.each do |room| %>
+        <tr>
+          <td><%= room.room_image %></td>
+          <td><%= room.name %></td>
+          <td><%= room.detail %></td>
+          <td><%= room.price %></td>
+          <td><%= room.created_at.to_s %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

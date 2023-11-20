@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="home.scss">
+
+
+<header>
+  <nav class="navbar Navbar">
+    <div class="container-fluid">
+      <a href="/"><img class="Navbar__logo" alt="サイトロゴ" src="/assets/common/logo.png"></a>
+
+        <div class="dropdown">
+          <div class="d-flex align-items-center NavProfile" id="dropdown-button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img class="NavProfile__avatar" alt="アバター" src="/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png">
+
+            <span class="nav-item d-sm-inline-block d-none NavProfile__name">
+              <%= @user.name %>
+            </span>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down NavProfile__icon" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path>
+            </svg>
+          </div>
+
+          <ul class="drop_menu" aria-labelledby="dropdown-button">
+            <li class="child_menu DropdownMenu__item">
+              <a href="/rooms/new">施設の新規登録</a>
+            </li>
+
+            <hr class="DropdownMenu__hr">
+
+            <li class="child_menu DropdownMenu__item">
+              <a href="">予約済み一覧</a>
+            </li>
+
+            <li class="child_menu DropdownMenu__item DropdownMenu__item--middle">
+              <a href="">登録済み一覧</a>
+            </li>
+
+            <li class="child_menu DropdownMenu__item">
+              <a href="/users/profile">アカウント設定</a>
+            </li>
+
+            <hr class="DropdownMenu__hr">
+
+            <li class="child_menu DropdownMenu__item">
+              <a rel="nofollow" data-method="delete" href="/users/sign_out">ログアウト</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </nav>
+</header>
