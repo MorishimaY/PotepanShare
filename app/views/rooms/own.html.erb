@@ -1,5 +1,3 @@
-<%= render 'shared/header' %>
-
 <h3>登録済み一覧</h3>
 
 <% if flash[:notice] %>
@@ -23,6 +21,15 @@
           <td><%= room.detail %></td>
           <td><%= room.price %></td>
           <td><%= room.created_at %></td>
+          <td>
+            <%= link_to "参照", room %>
+          </td>
+          <td>
+            <%= link_to "編集", [:edit, room] %>
+          </td>
+          <td>
+            <%= button_to "削除", room, method: :delete %>
+          </td>
         </tr>
       <% end %>
     </tbody>
