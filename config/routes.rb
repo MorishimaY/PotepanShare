@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reservations/index'
   get 'rooms/index'
   get 'rooms/own'
   get 'home/top'

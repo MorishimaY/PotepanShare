@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
   <%= render 'shared/header' %>
-  
+  <ul>
+    <li><%= link_to "施設の新規登録", :rooms_new %></li>
+    <li><%= link_to "予約済み一覧", :rooms_own %></li>
+    <li><%= link_to "登録済み一覧", :rooms_own %></li>
+    <li><%= link_to "アカウント設定", :users_profile %></li>
+    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+  </ul>
   <h1>Home#top</h1>
-  
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-</body>
-</html>
-
