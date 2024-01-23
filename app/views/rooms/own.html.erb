@@ -16,20 +16,13 @@
     <tbody>
       <% @rooms.each do |room| %>
         <tr>
-          <td><%= room.room_image %></td>
-          <td><%= room.name %></td>
+          <td><%= image_tag room.room_image.url %></td>
+          <td><%= link_to room.name, room %></td>
           <td><%= room.detail %></td>
           <td><%= room.price %></td>
-          <td><%= room.created_at %></td>
-          <td>
-            <%= link_to "詳細", room %>
-          </td>
-          <td>
-            <%= link_to "編集", [:edit, room] %>
-          </td>
-          <td>
-            <%= button_to "削除", room, method: :delete %>
-          </td>
+          <td><%= room.created_at.to_s(:datetime_jp1) %></td>
+          <td><%= link_to "編集", [:edit, room] %></td>
+          <td><%= button_to "削除", room, method: :delete %></td>
         </tr>
       <% end %>
     </tbody>

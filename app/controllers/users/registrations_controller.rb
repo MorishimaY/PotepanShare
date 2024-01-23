@@ -15,9 +15,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    super
+  end
 
   # PUT /resource
   # def update
@@ -65,22 +65,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
    
   def profile_update
-    current_user.assign_attributes(account_update_params)
-    if current_user.save
-      redirect_to users_show_path, notice: "ユーザー情報を更新しました"      
+    if current_user.update(user_params)
+      redirect_to user_show_path(current_user), notice: "ユーザー情報を更新しました"
     else
       render "profile_edit"
     end
   end
 
-  
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :avatar, :self_introduction)
+  end
+
   protected
 
 # 登録後のリダイレクト先
   def after_sign_up_path_for(resource)
-    users_show_path
+    user_show_path(resource)
   end
-# アカウント情報更新後のリダレクト先
+# アカウント情報更新後のリダイレクト先
   def after_update_path_for(resource)
     users_show_path
   end

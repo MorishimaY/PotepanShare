@@ -1,2 +1,31 @@
-<h1>Reservations#index</h1>
-<p>Find me in app/views/reservations/index.html.erb</p>
+<h3>予約済み一覧</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>施設画像</th>
+      <th>施設名</th>
+      <th>紹介文</th>
+      <th>合計料金</th>
+      <th>チェックイン日</th>
+      <th>チェックアウト日</th>
+      <th>予約確定日時</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= image_tag reservation.room.room_image.url %></td>
+        <td><%= reservation.room.name %></td>
+        <td><%= reservation.room.detail %></td>
+        <td><%= reservation.sum_price %></td>
+        <td><%= reservation.check_in.to_datetime.to_s(:datetime_jp1) %></td>
+        <td><%= reservation.check_out.to_datetime.to_s(:datetime_jp1) %></td>
+        <td><%= reservation.created_at.to_s(:datetime_jp2) %></td>
+        <td><%= link_to "再予約する", [:edit, reservation] %></td>
+        <td><%= button_to "削除", reservation, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

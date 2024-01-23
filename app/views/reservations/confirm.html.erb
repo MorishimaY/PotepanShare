@@ -1,0 +1,29 @@
+<h1>confirm</h1>
+
+ <p> 施設画像 </p>
+    <% if @reservation && @reservation.room %>
+      <td><%= image_tag @reservation.room.room_image.url %> </td>
+    <% else %>
+      <td><image src="/assets/default.png" %></td>
+    <% end %>
+
+<%= form_with model: @reservation, local: true do |f| %>
+  <p>チェックイン:<%= @reservation.check_in.to_datetime.to_s(:datetime_jp1) %></p>
+  <p>チェックアウト:<%= @reservation.check_out.to_datetime.to_s(:datetime_jp1) %></p>
+  <p>日数:<%= @reservation.total_days %>日</p>
+  <p>人数:<%= @reservation.person_num %></p>
+  <p>合計金額:<%= @sum_price %>円</p>
+  
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :room_id, value: @room.id %>
+  <%= f.hidden_field :person_num, value: @reservation.person_num %>
+  <%= f.hidden_field :check_in, value: @reservation.check_in %>
+  <%= f.hidden_field :check_out, value: @reservation.check_out %>
+  
+  <div>
+    <ul>
+      <li><%= f.submit "予約確定" %></li>
+      <li><%= link_to "お部屋詳細に戻る", rooms_path %></li>
+    </ul>
+  </div>
+<% end %>

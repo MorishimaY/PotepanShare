@@ -9,9 +9,9 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
 
   # DELETE /resource/sign_out
   # def destroy
@@ -27,11 +27,11 @@ class Users::SessionsController < Devise::SessionsController
 
   #ログイン後のリダイレクト先
   def after_sign_in_path_for(resource)
-    users_show_path
+    user_show_path(resource)
   end 
 
   #ログアウト後のリダイレクト先
-    def after_sign_out_path_for(resource)
-      root_path
-    end 
+  def after_sign_out_path_for(resource)
+    root_path
+  end 
 end

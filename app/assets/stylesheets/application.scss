@@ -1,0 +1,174 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ body {
+  font-family: Yu Gothic Medium,游ゴシック Medium,YuGothic,游ゴシック体,ヒラギノ角ゴ Pro W3,メイリオ,sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+header {
+  display: block;
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between; /* This will distribute child elements to the left and right */
+  padding-top: 0;
+  padding-bottom: 0.5rem;
+  background-color: #1c1d3b;
+  height: 80px;
+}
+
+.container, .container-fluid {
+  width: 100%;
+  padding-right: var(--bs-gutter-x,.75rem);
+  padding-left: var(--bs-gutter-x,.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container, .container-fluid {
+  max-width: 1440px;
+  padding: 0 32px;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  text-decoration: none;
+  color: #ffffff;
+  border: solid 3px #ffffff;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  position: absolute;
+  top: 15px;
+  left: 40px;
+}
+
+.NavProfile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  right: 50px;
+  top: 30px;
+  padding-bottom: 20px;
+  z-index: 1030;
+}
+
+.user_avatar {
+  padding: 0 30px 30px 0;
+  position: absolute;
+  right: 25px;
+  width: 100px;
+  height: 100px;
+}
+
+.user_avatar_image {
+  width: 250px;
+  height: 250px;
+}
+
+.NavProfile_name {
+  color: #ffffff;
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  padding: 0 10px 120px 40px;
+}
+
+.dropdown__lists {
+  display: none;
+  width: 100%;
+  position: absolute;
+  top: 60px;
+  right: 90px;
+}
+
+.NavProfile:hover .dropdown__lists {
+  display: block;
+}
+
+ul {
+  white-space: nowrap;
+  list-style: none;
+}
+
+.sign {
+  text-decoration: none;
+  color: #ffffff;
+  border: solid 3px #ffffff;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  float: right;
+  padding: 10px 20px;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.sign-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 20px;
+}
+
+.room_image {
+  width: 100%;
+  height: auto;
+}
+
+.card {
+  margin-bottom: 15px; /* カードの下の余白を設定 */
+}
+
+.card-img-top {
+  width: 100%;
+  border-top-left-radius: calc(.25rem - 1px);
+  border-top-right-radius: calc(.25rem - 1px);
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.card-title {
+  margin-bottom: .75rem;
+}
+
+.card-text:last-child {
+  margin-bottom: 0;
+}
+
+ @import "bootstrap/scss/bootstrap";
+ @import "bootstrap";
