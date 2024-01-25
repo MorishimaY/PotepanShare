@@ -47,13 +47,13 @@
   <main>
     <div>
       <%= form_with(url: search_rooms_path, method: :get, local: true) do %>
-        <%= label_tag :address_query, 'Address' %>
+        <%= label_tag :address_query, 'エリア' %>
         <%= text_field_tag :address_query, params[:address_query] %>
 
-        <%= label_tag :detail_query, 'Detail' %>
+        <%= label_tag :detail_query, 'フリーワード' %>
         <%= text_field_tag :detail_query, params[:detail_query] %>
 
-        <%= submit_tag 'Search', name: nil %>
+        <%= submit_tag '検索', name: nil %>
       <% end %>
 
       <% if @rooms %>

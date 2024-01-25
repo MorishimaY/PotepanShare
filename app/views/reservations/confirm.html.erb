@@ -8,8 +8,8 @@
     <% end %>
 
 <%= form_with model: @reservation, local: true do |f| %>
-  <p>チェックイン:<%= @reservation.check_in.to_datetime.to_s(:datetime_jp1) %></p>
-  <p>チェックアウト:<%= @reservation.check_out.to_datetime.to_s(:datetime_jp1) %></p>
+  <p>チェックイン:<%= @reservation.check_in ? @reservation.check_in.to_datetime.to_s(:datetime_jp1) : '未設定' %></p>
+  <p>チェックアウト:<%= @reservation.check_out ? @reservation.check_out.to_datetime.to_s(:datetime_jp1) : '未設定' %></p>
   <p>日数:<%= @reservation.total_days %>日</p>
   <p>人数:<%= @reservation.person_num %></p>
   <p>合計金額:<%= @sum_price %>円</p>
@@ -23,7 +23,7 @@
   <div>
     <ul>
       <li><%= f.submit "予約確定" %></li>
-      <li><%= link_to "お部屋詳細に戻る", rooms_path %></li>
+      <li><%= link_to "お部屋詳細に戻る", room_path(@reservation.room) %></li>
     </ul>
   </div>
 <% end %>

@@ -17,7 +17,7 @@
     <% @reservations.each do |reservation| %>
       <tr>
         <td><%= image_tag reservation.room.room_image.url %></td>
-        <td><%= reservation.room.name %></td>
+        <td><%= link_to reservation.room.name, reservation.room %></td>
         <td><%= reservation.room.detail %></td>
         <td><%= reservation.sum_price %></td>
         <td><%= reservation.check_in.to_datetime.to_s(:datetime_jp1) %></td>

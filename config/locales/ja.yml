@@ -5,11 +5,11 @@ ja:
       models:
         reservation:
           attributes:
-            check_in:
+            check_in: 
               blank: "は必須項目です"
-            check_out:
+            check_out: 
               blank: "は必須項目です"
-            person_num:
+            person_num: 
               blank: "は必須項目です"
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
