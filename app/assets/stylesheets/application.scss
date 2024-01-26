@@ -120,6 +120,21 @@ ul {
   list-style: none;
 }
 
+.search {
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+}
+
+.search label {
+  color: #ffffff;
+}
+
+.logo,
+  .search {
+    margin-bottom: 10px;
+  }
+
 .sign {
   text-decoration: none;
   color: #ffffff;
@@ -169,6 +184,7 @@ ul {
 .card-text:last-child {
   margin-bottom: 0;
 }
+
 
  @import "bootstrap/scss/bootstrap";
  @import "bootstrap";

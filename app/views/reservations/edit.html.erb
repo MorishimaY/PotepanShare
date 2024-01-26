@@ -19,6 +19,8 @@
   </tr>
 </table>
 
+<%= render 'shared/error_messages', resource: @reservation %>
+
 <%= form_with model: @reservation, url: reservation_path(@reservation) do |f| %>
   <table>
     <tr>

@@ -51,6 +51,7 @@ class ReservationsController < ApplicationController
 
   def update
     @reservation = Reservation.find(params[:id])
+    @room = @reservation.room
     if @reservation.update(reservation_params)
       flash[:notice] = "予約が更新されました"
       redirect_to reservations_path

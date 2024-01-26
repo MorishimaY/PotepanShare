@@ -20,6 +20,17 @@
     <nav class="navbar">
       <div class="container-fluid">
         <a href="/" class="logo">ぽてぱんしぇあ</a>
+        <div class="search">
+          <%= form_with(url: search_rooms_path, method: :get, local: true) do %>
+            <%= label_tag :address_query, 'エリア' %>
+            <%= text_field_tag :address_query, params[:address_query] %>
+
+            <%= label_tag :detail_query, 'フリーワード' %>
+            <%= text_field_tag :detail_query, params[:detail_query] %>
+
+            <%= submit_tag '検索', name: nil %>
+          <% end %>
+        </div>
         <% if user_signed_in? %>
           <div class="NavProfile" id="dropdownMenu">
             <div class="avatar">
@@ -45,24 +56,6 @@
   </header>
 
   <main>
-    <div>
-      <%= form_with(url: search_rooms_path, method: :get, local: true) do %>
-        <%= label_tag :address_query, 'エリア' %>
-        <%= text_field_tag :address_query, params[:address_query] %>
-
-        <%= label_tag :detail_query, 'フリーワード' %>
-        <%= text_field_tag :detail_query, params[:detail_query] %>
-
-        <%= submit_tag '検索', name: nil %>
-      <% end %>
-
-      <% if @rooms %>
-        <% @rooms.each do |room| %>
-          <!-- Room details can be displayed here -->
-        <% end %>
-      <% end %>
-    </div>
-    
     <%= yield %>
   </main>
 </body>
