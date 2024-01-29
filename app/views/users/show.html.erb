@@ -1,0 +1,14 @@
+<h1>設定</h1>
+<h2>アカウント</h2>
+<%= link_to "プロフィール", users_profile_path %>
+<div>
+  <%= image_tag @user.avatar.url, class: 'user_avatar_image' %>
+</div>
+<h3>メールアドレス</h3>
+<%= @user.email %>
+<h3>パスワード</h3>
+<h5>*********</h5>
+
+<% if user_signed_in? && @user == current_user %>
+  <%= link_to "アカウント情報編集", edit_user_registration_path %>
+<% end %>

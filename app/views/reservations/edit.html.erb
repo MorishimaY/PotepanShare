@@ -1,0 +1,44 @@
+<h3>再予約する</h3>
+
+<table>
+  <tr>
+    <th>施設画像</th>
+    <td><%= image_tag @room.room_image.url %></td>
+  </tr>
+  <tr>
+    <th>施設名</th>
+    <td><%= @room.name %></td>
+  </tr>
+  <tr>
+    <th>料金</th>
+    <td><%= @room.price %></td>
+  </tr>
+  <tr>
+    <th>紹介文</th>
+    <td><%= @room.detail %></td>
+  </tr>
+</table>
+
+<%= render 'shared/error_messages', resource: @reservation %>
+
+<%= form_with model: @reservation, url: reservation_path(@reservation) do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :check_in, "チェックイン" %></th>
+      <td><%= f.date_field :check_in %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :check_out, "チェックアウト"%></th>
+      <td><%= f.date_field :check_out %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :person_num, "人数"%></th>
+      <td><%= f.number_field :person_num %></td>
+    </tr>
+    <%= f.hidden_field :room_id, value: @room.id %>
+    <%= f.hidden_field :price, value: @room.price %>
+  </table>
+  <td><%= f.submit "再予約する" %></td>
+<% end %>

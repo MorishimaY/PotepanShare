@@ -1,0 +1,50 @@
+<h3>施設登録</h3>
+
+<%= form_with model: @room do |f| %>
+  <% if @room.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@room.errors.count, "error") %> が検出されました:</h2>
+      <ul>
+      <% @room.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table>
+    <tr>
+      <th><%= f.label :room_iamge ,"施設画像" %></th>
+      <td><%= f.file_field :room_image %></td>
+      <td><%= f.hidden_field :room_image_cache %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :name ,"施設名" %></th>
+      <td><%= f.text_field :name %></td>
+    </tr>
+ 
+    <tr>
+      <th><%= f.label :detail ,"施設詳細" %></th>
+      <td><%= f.text_area :detail %></td>
+    </tr>
+ 
+    <tr>
+      <th><%= f.label :price ,"料金" %></th>
+      <td><%= f.text_field :price %></td>
+    </tr>
+ 
+    <tr>
+      <th><%= f.label :address ,"住所" %></th>
+      <td><%= f.text_field :address %></td>
+    </tr>
+  </table>
+
+   <%= f.hidden_field :user_id, value: @user.id %>
+ 
+  <div>
+    <ul>
+      <li><%= f.submit "保存" %></li>
+      <li><%= link_to "キャンセル", :rooms_own %></li>
+    </ul>
+  </div>
+<% end %>

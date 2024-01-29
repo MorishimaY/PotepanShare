@@ -1,0 +1,61 @@
+<h3>お部屋詳細</h3>
+ 
+<table>
+  <tr>
+    <th>施設画像</th>
+    <% if @reservation && @reservation.room %>
+      <td><%= image_tag @reservation.room.room_image.url %> </td>
+    <% else %>
+      <td><image src="/assets/default.png" %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>住所</th>
+    <td><%= @room.address %></td>
+  </tr>
+  <tr>
+    <th>施設名</th>
+    <td><%= @room.name %></td>
+  </tr>
+  <tr>
+    <th>料金</th>
+    <td><%= @room.price %></td>
+  </tr>
+  <tr>
+    <th>紹介文</th>
+    <td><%= @room.detail %></td>
+  </tr>
+</table>
+
+<%= render "shared/error", obj: @reservation %>
+
+<%= form_with model: @reservation, url: reservations_confirm_path do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :check_in, "チェックイン" %></th>
+      <td><%= f.date_field :check_in %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :check_out, "チェックアウト"%></th>
+      <td><%= f.date_field :check_out %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :person_num, "人数"%></th>
+      <td><%= f.number_field :person_num %></td>
+    </tr>
+
+    <%= f.hidden_field :room_id, value: @room.id %>
+  </table>
+  <td><%= f.submit "予約する" %></td>
+<% end %>
+
+ 
+<div>
+  <ul>
+    <li><%= link_to "前のページに戻る", 'javascript:history.back()' %></li>
+    <li><%= link_to "登録済み一覧に戻る", :rooms_own %></li>
+    <li><%= link_to "編集", edit_room_path(@room) %></li>
+  </ul>
+</div>

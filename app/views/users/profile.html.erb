@@ -1,0 +1,12 @@
+<h1>設定</h1>
+<h2> プロフィール </h2>
+<%= link_to "アカウント", user_show_path(@user) %>
+<div>
+  <%= image_tag @user.avatar.url, class: 'user_avatar_image' %>
+</div>
+<h3>ユーザー名</h3>
+<%= @user.name %>
+<h3>自己紹介</h3>
+<%= @user.self_introduction %>
+
+<%= link_to "編集", profile_edit_path %> 
